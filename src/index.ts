@@ -8,9 +8,6 @@ import { log } from './config/log.js'
 
 const app = new App()
 
-/* ======= SETTINGS ======= */
-app.set('port', PORT)
-
 /* ======= MIDDLEWARE ======= */
 app.use(logger({ timestamp: { format: 'HH:mm:ss' } }))
 app.use(cors())
@@ -18,6 +15,6 @@ app.use(cors())
 /* ======= ROUTES ======= */
 app.use(routes)
 
-app.listen(3000, () => {
+app.listen(Number(PORT), () => {
   log.main(`🚀 Server running ➜ PORT: ${PORT}`)
 })
